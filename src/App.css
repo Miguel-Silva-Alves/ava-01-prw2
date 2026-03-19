@@ -1,0 +1,5 @@
+.container {
+  max-width: 1200px; /* controla largura do site */
+  margin: 0 auto; /* centraliza */
+  padding: 0 20px; /* respiro nas laterais */
+}
