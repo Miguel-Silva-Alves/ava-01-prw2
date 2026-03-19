@@ -1,0 +1,68 @@
+.sections-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+
+  justify-content: space-between; /* distribui quando couber */
+
+  scrollbar-width: none;
+}
+
+
+.sections-container::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.section-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 1;            /* 🔥 faz crescer */
+  min-width: 90px;    /* 🔥 impede de ficar pequeno demais */
+  max-width: 120px;   /* opcional: limita crescimento */
+
+  cursor: pointer;
+}
+.section-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f0f0f0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s;
+}
+
+.section-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-item span {
+  margin-top: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.section-item:hover .section-circle {
+  transform: scale(1.08);
+}
+
+/* botão adicionar */
+.add-item .section-circle {
+  background: #e0e0e0;
+  border: 2px dashed #aaa;
+}
+
+.plus {
+  font-size: 28px;
+  font-weight: bold;
+  color: #666;
+}

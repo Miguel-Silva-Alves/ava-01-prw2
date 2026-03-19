@@ -3,6 +3,8 @@ import './App.css'
 import Area from './components/area/area'
 import Banner from './components/banner/banner'
 import Forms from './components/forms/forms'
+import HorizontalSections from './components/section/horizontalSections'
+
 
 function App() {
 
@@ -37,10 +39,22 @@ function App() {
     console.log('Novo professor => ', prof)
     setProfessors([...professors, prof])
   }
+
+  const sections = [
+    { name: 'Computadores', image: 'https://i.pravatar.cc/100?img=1' },
+    { name: 'Acessórios', image: 'https://i.pravatar.cc/100?img=2' },
+    { name: 'Impressoras', image: 'https://i.pravatar.cc/100?img=3' },
+    { name: 'Games', image: 'https://i.pravatar.cc/100?img=4' },
+    { name: 'Gadgets', image: 'https://i.pravatar.cc/100?img=5' },
+  ]
   return (
     <>
       <div className="container">
         <Banner />
+        <HorizontalSections 
+          sections={sections}
+          onAdd={() => console.log('Adicionar clicado')}
+        />
         <Forms onAddProf={addProf} itens = {listaAreas} />
         {
           areas.map((area) => (
