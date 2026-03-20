@@ -2,12 +2,33 @@ import { useState } from 'react'
 import './App.css'
 import Area from './components/area/area'
 import Banner from './components/banner/banner'
-import Forms from './components/forms/forms'
 import HorizontalSections from './components/section/horizontalSections'
 
 function App() {
 
-  const [professors, setProfessors] = useState([])
+  // 🔥 agora é products
+  const [products, setProducts] = useState([
+    {
+      productName: "MacBook Pro",
+      price: 7500,
+      condition: "used",
+      sectionName: "Computadores",
+      sectionImage: "https://i.pravatar.cc/50?img=1",
+      brandName: "Apple",
+      brandImage: "https://logo.clearbit.com/apple.com",
+      userImage: "https://i.pravatar.cc/50?img=10"
+    },
+    {
+      productName: "Teclado Mecânico",
+      price: 350,
+      condition: "new",
+      sectionName: "Acessórios",
+      sectionImage: "https://i.pravatar.cc/50?img=2",
+      brandName: "Logitech",
+      brandImage: "https://logo.clearbit.com/logitech.com",
+      userImage: "https://i.pravatar.cc/50?img=11"
+    }
+  ])
 
   const [sections, setSections] = useState([
     { name: 'Computadores', image: 'https://i.pravatar.cc/100?img=1' },
@@ -20,19 +41,6 @@ function App() {
   const [showModal, setShowModal] = useState(false)
   const [newName, setNewName] = useState("")
   const [newImage, setNewImage] = useState("")
-
-  const areas = [
-    { name: 'Progr. Básica', corPrimaria: '#57c278', corSecundaria: '#d9f7e9' },
-    { name: 'Progr. Web', corPrimaria: '#82cffa', corSecundaria: '#e8f8ff' },
-    { name: 'Banco de Dados', corPrimaria: '#a6d157', corSecundaria: '#f0f8e2' },
-    { name: 'Diversos', corPrimaria: '#e06b69', corSecundaria: '#fde7e8' }
-  ]
-
-  const listaAreas = areas.map(area => area.name)
-
-  const addProf = (prof) => {
-    setProfessors([...professors, prof])
-  }
 
   // 🚀 adicionar nova section
   const handleAddSection = () => {
@@ -59,15 +67,16 @@ function App() {
           onAdd={() => setShowModal(true)}
         />
 
-        <Forms onAddProf={addProf} itens={listaAreas} />
-
-        {areas.map((area) => (
+        {/* 🔥 AREAS BASEADAS NAS SECTIONS */}
+        {sections.map((section) => (
           <Area
-            key={area.name}
-            name={area.name}
-            corPrimaria={area.corPrimaria}
-            corSecundaria={area.corSecundaria}
-            professores={professors.filter(prof => prof.area === area.name)}
+            key={section.name}
+            name={section.name}
+            corPrimaria="#6278F7"
+            corSecundaria="#F5F7FF"
+            products={products.filter(
+              product => product.sectionName === section.name
+            )}
           />
         ))}
       </div>

@@ -14,7 +14,7 @@ Este css vale para a aplicação inteira!!!
     padding-bottom: 8px;
 } 
 
-.area .professores {
+.area .products {
     display: flex;
     justify-content: space-around;
     margin-top: 32px;
