@@ -1,0 +1,52 @@
+.brand-carousel {
+  overflow: hidden;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.brand-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.brand-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  min-width: 160px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  white-space: nowrap;
+  transition: transform 0.2s;
+}
+
+.brand-card:hover {
+  transform: scale(1.05);
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* 🔥 deixa redondo */
+  object-fit: cover;
+  background: white;
+  padding: 4px;
+}
+
+.brand-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* animação infinita */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

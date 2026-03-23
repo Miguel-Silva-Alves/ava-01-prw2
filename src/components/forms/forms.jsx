@@ -12,15 +12,19 @@ const Forms = (props) => {
     const [condition, setCondition] = useState('')
     const [sectionName, setSectionName] = useState('')
     const [brandName, setBrandName] = useState('')
-    const [brandImage, setBrandImage] = useState('')
     const [userImage, setUserImage] = useState('')
 
     const toSave = (evento) => {
         evento.preventDefault()
 
-        // 🔥 busca a section completa pelo nome
+        // section selecionada
         const selectedSection = props.sections.find(
             (s) => s.name === sectionName
+        )
+
+        // brand selecionada
+        const selectedBrand = props.brands.find(
+            (b) => b.name === brandName
         )
 
         props.onAddProduct({
@@ -30,7 +34,7 @@ const Forms = (props) => {
             sectionName,
             sectionImage: selectedSection?.image || '',
             brandName,
-            brandImage,
+            brandImage: selectedBrand?.image || '',
             userImage
         })
 
@@ -40,7 +44,6 @@ const Forms = (props) => {
         setCondition('')
         setSectionName('')
         setBrandName('')
-        setBrandImage('')
         setUserImage('')
     }
 
@@ -70,7 +73,6 @@ const Forms = (props) => {
                     toChange={setCondition} 
                 />
 
-                {/* 🔥 agora escolhe a seção existente */}
                 <DropDown 
                     label="Seção" 
                     itens={props.itens} 
@@ -78,18 +80,12 @@ const Forms = (props) => {
                     toChange={setSectionName} 
                 />
 
-                <FieldText 
+                {/* 🔥 NOVO: dropdown de marca */}
+                <DropDown 
                     label="Marca" 
-                    placeholder="Ex: Apple" 
+                    itens={props.brands.map(b => b.name)} 
                     value={brandName} 
-                    onChange={setBrandName} 
-                />
-
-                <FieldText 
-                    label="Imagem da Marca" 
-                    placeholder="URL da imagem" 
-                    value={brandImage} 
-                    onChange={setBrandImage} 
+                    toChange={setBrandName} 
                 />
 
                 <FieldText 

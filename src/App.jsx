@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Area from './components/area/area'
 import Banner from './components/banner/banner'
+import BrandSection from './components/brand/brandSection'
 import Forms from './components/forms/forms'
 import HorizontalSections from './components/section/horizontalSections'
 
@@ -37,6 +38,13 @@ function App() {
     { name: 'Impressoras', image: 'https://i.pravatar.cc/100?img=3' },
     { name: 'Games', image: 'https://i.pravatar.cc/100?img=4' },
     { name: 'Gadgets', image: 'https://i.pravatar.cc/100?img=5' },
+  ])
+
+  const [brands, setBrands] = useState([
+    { name: 'HP', image: 'https://dxc.scene7.com/is/image/dxc/hp_1050x1050?qlt=90&wid=768&ts=1749506259261&$square_desktop$&dpr=off' },
+    { name: 'Positivo', image: 'https://oempregodossonhos.com.br/wp-content/uploads/2024/07/POSITIVOn-1.png' },
+    { name: 'Dell', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMJLxQwJ2yj3S0NbQkph0pKK26NLO5dchJg&s' },
+    { name: 'Asus', image: 'https://assets.cuponomia.com.br/img/stores/original/asus-637708415447543628.png' },
   ])
 
   const [showModal, setShowModal] = useState(false)
@@ -85,15 +93,20 @@ function App() {
             )}
           />
         ))}
+
+        <BrandSection brands={brands} />
+
+        <div className="form-section">
+          <Forms 
+            onAddProduct={handleAddProduct}
+            sections={sections}
+            brands={brands}
+            itens={sections.map(s => s.name)} // dropdown com as sections
+          />
+        </div>
       </div>
 
-      <div className="form-section">
-        <Forms 
-          onAddProduct={handleAddProduct}
-          sections={sections}
-          itens={sections.map(s => s.name)} // dropdown com as sections
-        />
-      </div>
+      
 
       {/* MODAL */}
       {showModal && (
