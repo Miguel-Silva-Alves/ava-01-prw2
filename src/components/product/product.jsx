@@ -40,7 +40,7 @@ const Product = ({
         </p>
 
         <span className={`badge ${condition}`}>
-          {condition === "new" ? "Novo" : "Usado"}
+          {condition === "Novo" ? "Novo" : "Usado"}
         </span>
       </div>
 

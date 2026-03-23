@@ -9,7 +9,7 @@ const Forms = (props) => {
 
     const [productName, setProductName] = useState('')
     const [price, setPrice] = useState('')
-    const [condition, setCondition] = useState('new')
+    const [condition, setCondition] = useState('Novo')
     const [sectionName, setSectionName] = useState(props.itens?.[0] || '')
     const [brandName, setBrandName] = useState(props.brands?.[0]?.name || '')
     const [productImage, setProductImage] = useState('')
@@ -35,7 +35,7 @@ const Forms = (props) => {
         // limpar form
         setProductName('')
         setPrice('')
-        setCondition('new')
+        setCondition('Novo')
         setSectionName(props.itens?.[0] || '')
         setBrandName(props.brands?.[0]?.name || '')
         setProductImage('')
@@ -62,7 +62,7 @@ const Forms = (props) => {
 
                 <DropDown 
                     label="Condição" 
-                    itens={["new", "used"]} 
+                    itens={["Novo", "Usado"]} 
                     value={condition} 
                     toChange={(valor) => setCondition(valor)} 
                 />
