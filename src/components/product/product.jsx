@@ -1,44 +1,47 @@
+import { useState } from 'react';
 import './product.css';
 
 const Product = ({
   productName,
   price,
-  condition, // "new" | "used"
-  sectionName,
-  sectionImage,
+  condition,
   brandName,
   brandImage,
-  userImage
+  productImage
 }) => {
+
+  const fallback = "https://placehold.co/300x200?text=Sem+Imagem"
+
+  const [imgSrc, setImgSrc] = useState(productImage || fallback)
   return (
     <div className="product-card">
 
-      {/* HEADER */}
+      {/* HEADER - BRAND */}
       <div className="product-header">
-        <div className="product-section">
-          <img src={sectionImage} alt={sectionName} />
-          <span>{sectionName}</span>
-        </div>
-
-        <div className="product-brand">
-          <img src={brandImage} alt={brandName} />
-          <span>{brandName}</span>
-        </div>
+        <img src={brandImage} alt={brandName} />
+        <span>{brandName}</span>
       </div>
 
-      {/* BODY */}
-      <div className="product-body">
+      {/* IMAGE */}
+      <div className="product-image">
+        <img
+          src={imgSrc}
+          alt={productName}
+          onError={() => setImgSrc(fallback)}
+        />
+      </div>
+
+      {/* INFO */}
+      <div className="product-info">
         <h4>{productName}</h4>
-        <p className="price">R$ {price}</p>
+
+        <p className="price">
+          R$ {price}
+        </p>
 
         <span className={`badge ${condition}`}>
-          {condition === "new" ? "New" : "Used"}
+          {condition === "new" ? "Novo" : "Usado"}
         </span>
-      </div>
-
-      {/* FOOTER */}
-      <div className="product-footer">
-        <img src={userImage} alt="user" />
       </div>
 
     </div>

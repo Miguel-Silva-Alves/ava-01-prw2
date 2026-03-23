@@ -9,18 +9,13 @@ const Forms = (props) => {
 
     const [productName, setProductName] = useState('')
     const [price, setPrice] = useState('')
-    const [condition, setCondition] = useState('')
-    const [sectionName, setSectionName] = useState('')
-    const [brandName, setBrandName] = useState('')
-    const [userImage, setUserImage] = useState('')
+    const [condition, setCondition] = useState('new')
+    const [sectionName, setSectionName] = useState(props.itens?.[0] || '')
+    const [brandName, setBrandName] = useState(props.brands?.[0]?.name || '')
+    const [productImage, setProductImage] = useState('')
 
     const toSave = (evento) => {
         evento.preventDefault()
-
-        // section selecionada
-        const selectedSection = props.sections.find(
-            (s) => s.name === sectionName
-        )
 
         // brand selecionada
         const selectedBrand = props.brands.find(
@@ -32,19 +27,18 @@ const Forms = (props) => {
             price,
             condition,
             sectionName,
-            sectionImage: selectedSection?.image || '',
             brandName,
             brandImage: selectedBrand?.image || '',
-            userImage
+            productImage
         })
 
         // limpar form
         setProductName('')
         setPrice('')
-        setCondition('')
-        setSectionName('')
-        setBrandName('')
-        setUserImage('')
+        setCondition('new')
+        setSectionName(props.itens?.[0] || '')
+        setBrandName(props.brands?.[0]?.name || '')
+        setProductImage('')
     }
 
     return (
@@ -61,7 +55,7 @@ const Forms = (props) => {
 
                 <FieldText 
                     label="Preço" 
-                    placeholder="Ex: 199.90" 
+                    placeholder="Ex: R$ 199.90" 
                     value={price} 
                     onChange={setPrice} 
                 />
@@ -70,29 +64,28 @@ const Forms = (props) => {
                     label="Condição" 
                     itens={["new", "used"]} 
                     value={condition} 
-                    toChange={setCondition} 
+                    toChange={(valor) => setCondition(valor)} 
                 />
 
                 <DropDown 
                     label="Seção" 
                     itens={props.itens} 
                     value={sectionName} 
-                    toChange={setSectionName} 
+                    toChange={(valor) => setSectionName(valor)} 
                 />
 
-                {/* 🔥 NOVO: dropdown de marca */}
                 <DropDown 
                     label="Marca" 
                     itens={props.brands.map(b => b.name)} 
                     value={brandName} 
-                    toChange={setBrandName} 
+                    toChange={(valor) => setBrandName(valor)} 
                 />
 
                 <FieldText 
-                    label="Imagem do Usuário" 
+                    label="Imagem do Produto" 
                     placeholder="URL da imagem" 
-                    value={userImage} 
-                    onChange={setUserImage} 
+                    value={productImage} 
+                    onChange={setProductImage} 
                 />
 
                 <Button text="Salvar Produto" />

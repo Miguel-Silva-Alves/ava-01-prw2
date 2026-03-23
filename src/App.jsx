@@ -9,27 +9,24 @@ import HorizontalSections from './components/section/horizontalSections'
 
 function App() {
 
-  // agora é products
   const [products, setProducts] = useState([
     {
       productName: "MacBook Pro",
       price: 7500,
       condition: "used",
+      brandName: "HP",
       sectionName: "Computadores",
-      sectionImage: "https://i.pravatar.cc/50?img=1",
-      brandName: "Apple",
-      brandImage: "https://logo.clearbit.com/apple.com",
-      userImage: "https://i.pravatar.cc/50?img=10"
+      brandImage: "https://dxc.scene7.com/is/image/dxc/hp_1050x1050?qlt=90&wid=768&ts=1749506259261&$square_desktop$&dpr=off",
+      productImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSuRp2kmgjvrsVDg7H6D7ZjmkTJSAA5t3zTQ&s"
     },
     {
       productName: "Teclado Mecânico",
       price: 350,
       condition: "new",
       sectionName: "Acessórios",
-      sectionImage: "https://i.pravatar.cc/50?img=2",
-      brandName: "Logitech",
-      brandImage: "https://logo.clearbit.com/logitech.com",
-      userImage: "https://i.pravatar.cc/50?img=11"
+      brandName: "Positivo",
+      brandImage: "https://oempregodossonhos.com.br/wp-content/uploads/2024/07/POSITIVOn-1.png",
+      productImage: "https://images.unsplash.com/photo-1587829741301-dc798b83add3"
     }
   ])
 

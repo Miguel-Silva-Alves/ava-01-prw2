@@ -23,7 +23,7 @@ const Area = ({ name, products = [], corPrimaria, corSecundaria }) => {
               sectionImage={product.sectionImage}
               brandName={product.brandName}
               brandImage={product.brandImage}
-              userImage={product.userImage}
+              productImage={product.productImage}
             />
           ))}
         </div>
