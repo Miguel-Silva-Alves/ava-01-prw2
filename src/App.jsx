@@ -31,11 +31,11 @@ function App() {
   ])
 
   const [sections, setSections] = useState([
-    { name: 'Computadores', image: 'https://i.pravatar.cc/100?img=1' },
-    { name: 'Acessórios', image: 'https://i.pravatar.cc/100?img=2' },
-    { name: 'Impressoras', image: 'https://i.pravatar.cc/100?img=3' },
-    { name: 'Games', image: 'https://i.pravatar.cc/100?img=4' },
-    { name: 'Gadgets', image: 'https://i.pravatar.cc/100?img=5' },
+    { name: 'Computadores', image: 'https://thumbs.dreamstime.com/b/programmer-reviews-documentation-coding-pc-modern-office-software-developer-cross-referencing-paperwork-source-445409596.jpg?w=992' },
+    { name: 'Acessórios', image: 'https://thumbs.dreamstime.com/b/computer-peripherals-laptop-accessories-composition-white-wooden-board-47590141.jpg?w=992' },
+    { name: 'Impressoras', image: 'https://thumbs.dreamstime.com/b/printer-4724590.jpg?w=992' },
+    { name: 'Games', image: 'https://thumbs.dreamstime.com/b/game-controller-25683.jpg?w=992' },
+    { name: 'Gadgets', image: 'https://thumbs.dreamstime.com/b/gadgets-accessories-gadgets-accessories-isolated-white-background-133429004.jpg?w=768' },
   ])
 
   const brands = [
@@ -43,6 +43,7 @@ function App() {
     { name: 'Positivo', image: 'https://oempregodossonhos.com.br/wp-content/uploads/2024/07/POSITIVOn-1.png' },
     { name: 'Dell', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMJLxQwJ2yj3S0NbQkph0pKK26NLO5dchJg&s' },
     { name: 'Asus', image: 'https://assets.cuponomia.com.br/img/stores/original/asus-637708415447543628.png' },
+    { name: 'Xing-Ling', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_fLx4U8Cgbhr1oKDK65fnbhqCo-LJuZckvg&s' }
   ];
 
   const [showModal, setShowModal] = useState(false)
