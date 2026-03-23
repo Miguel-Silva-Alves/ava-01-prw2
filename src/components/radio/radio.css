@@ -1,0 +1,61 @@
+.radio-group {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-label {
+    margin: 24px 0;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.radio-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* esconde o radio padrão */
+.radio-option input {
+  display: none;
+}
+
+/* botão visual */
+.radio-option {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+
+  font-size: 20px;
+  color: #555;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover */
+.radio-option:hover {
+  border-color: #6278F7;
+  color: #6278F7;
+}
+
+/* selecionado */
+.radio-option:has(input:checked) {
+  background-color: #6278F7;
+  color: #fff;
+  border-color: #6278F7;
+  box-shadow: 0 4px 10px rgba(98, 120, 247, 0.3);
+  transform: translateY(-1px);
+}
+
+/* click feedback */
+.radio-option:active {
+  transform: scale(0.97);
+}

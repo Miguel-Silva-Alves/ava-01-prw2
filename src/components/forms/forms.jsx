@@ -4,9 +4,9 @@ import { useState } from 'react';
 import Button from '../button/button';
 import DropDown from '../drop_down/drop_down';
 import FieldText from "../field_text/field_text";
+import Radio from '../radio/radio';
 
 const Forms = (props) => {
-
     const [productName, setProductName] = useState('')
     const [price, setPrice] = useState('')
     const [condition, setCondition] = useState('Novo')
@@ -60,11 +60,12 @@ const Forms = (props) => {
                     onChange={setPrice} 
                 />
 
-                <DropDown 
-                    label="Condição" 
-                    itens={["Novo", "Usado"]} 
-                    value={condition} 
-                    toChange={(valor) => setCondition(valor)} 
+                <Radio
+                    label="Condição"
+                    name="condition"
+                    itens={["Novo", "Usado"]}
+                    value={condition}
+                    toChange={setCondition}
                 />
 
                 <DropDown 
