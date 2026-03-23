@@ -13,7 +13,7 @@ function App() {
     {
       productName: "MacBook Pro",
       price: 7500,
-      condition: "used",
+      condition: "Usado",
       brandName: "HP",
       sectionName: "Computadores",
       brandImage: "https://dxc.scene7.com/is/image/dxc/hp_1050x1050?qlt=90&wid=768&ts=1749506259261&$square_desktop$&dpr=off",
@@ -22,7 +22,7 @@ function App() {
     {
       productName: "Teclado Mecânico",
       price: 350,
-      condition: "new",
+      condition: "Novo",
       sectionName: "Acessórios",
       brandName: "Positivo",
       brandImage: "https://oempregodossonhos.com.br/wp-content/uploads/2024/07/POSITIVOn-1.png",

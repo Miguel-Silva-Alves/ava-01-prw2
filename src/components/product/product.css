@@ -61,12 +61,12 @@
   border-radius: 20px;
 }
 
-.badge.new {
+.badge.Novo {
   background: #e6f9ed;
   color: #1a7f37;
 }
 
-.badge.used {
+.badge.Usado {
   background: #fff4e5;
   color: #b26a00;
 }
