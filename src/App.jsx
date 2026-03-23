@@ -106,7 +106,7 @@ function App() {
           />
         ))}
 
-        {/* 🔥 mensagem quando filtrado e vazio */}
+        {/* mensagem quando filtrado e vazio */}
         {selectedSection && !hasProductsInSelected && (
           <div className="empty-state">
             Sem produtos nessa seção

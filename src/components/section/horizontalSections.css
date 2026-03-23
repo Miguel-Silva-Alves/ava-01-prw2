@@ -19,9 +19,9 @@
   flex-direction: column;
   align-items: center;
 
-  flex: 1;            /* 🔥 faz crescer */
-  min-width: 90px;    /* 🔥 impede de ficar pequeno demais */
-  max-width: 120px;   /* opcional: limita crescimento */
+  flex: 1;            
+  min-width: 90px;
+  max-width: 120px;
 
   cursor: pointer;
 }
