@@ -3,6 +3,7 @@ import './App.css'
 import Area from './components/area/area'
 import Banner from './components/banner/banner'
 import BrandSection from './components/brand/brandSection'
+import Footer from './components/footer/footer'
 import Forms from './components/forms/forms'
 import HorizontalSections from './components/section/horizontalSections'
 
@@ -104,6 +105,8 @@ function App() {
             itens={sections.map(s => s.name)} // dropdown com as sections
           />
         </div>
+
+        <Footer />
       </div>
 
       
