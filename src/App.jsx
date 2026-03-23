@@ -41,12 +41,12 @@ function App() {
     { name: 'Gadgets', image: 'https://i.pravatar.cc/100?img=5' },
   ])
 
-  const [brands, setBrands] = useState([
+  const brands = [
     { name: 'HP', image: 'https://dxc.scene7.com/is/image/dxc/hp_1050x1050?qlt=90&wid=768&ts=1749506259261&$square_desktop$&dpr=off' },
     { name: 'Positivo', image: 'https://oempregodossonhos.com.br/wp-content/uploads/2024/07/POSITIVOn-1.png' },
     { name: 'Dell', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMJLxQwJ2yj3S0NbQkph0pKK26NLO5dchJg&s' },
     { name: 'Asus', image: 'https://assets.cuponomia.com.br/img/stores/original/asus-637708415447543628.png' },
-  ])
+  ];
 
   const [showModal, setShowModal] = useState(false)
   const [newName, setNewName] = useState("")
