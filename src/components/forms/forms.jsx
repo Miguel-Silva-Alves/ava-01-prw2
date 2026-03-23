@@ -7,33 +7,102 @@ import FieldText from "../field_text/field_text";
 
 const Forms = (props) => {
 
-    // Criando os estados
-    const [name, setName] = useState('')
-    const [title, setTitle] = useState('')
-    const [image, setImage] = useState('')
-    const [area, setArea] = useState('')
+    const [productName, setProductName] = useState('')
+    const [price, setPrice] = useState('')
+    const [condition, setCondition] = useState('')
+    const [sectionName, setSectionName] = useState('')
+    const [brandName, setBrandName] = useState('')
+    const [brandImage, setBrandImage] = useState('')
+    const [userImage, setUserImage] = useState('')
 
     const toSave = (evento) => {
         evento.preventDefault()
-        // console.log('Form foi submetido => ', name, title, image, area)
-        props.onAddProf({
-            "name": name,
-            "title": title,
-            "image": image,
-            "area": area
+
+        // 🔥 busca a section completa pelo nome
+        const selectedSection = props.sections.find(
+            (s) => s.name === sectionName
+        )
+
+        props.onAddProduct({
+            productName,
+            price,
+            condition,
+            sectionName,
+            sectionImage: selectedSection?.image || '',
+            brandName,
+            brandImage,
+            userImage
         })
+
+        // limpar form
+        setProductName('')
+        setPrice('')
+        setCondition('')
+        setSectionName('')
+        setBrandName('')
+        setBrandImage('')
+        setUserImage('')
     }
+
     return (
         <section className="forms">
             <form onSubmit={toSave}>
-                <h2>Dados do professor:</h2>
-                <FieldText label="Nome" placeholder="Digite seu nome" value={name} onChange={(e) => setName(e)} />
-                <FieldText label="Título" placeholder="Digite seu título" value={title} onChange={(e) => setTitle(e)} />
-                <FieldText label="Imagem" placeholder="Digite o endereço da imagem" value={image} onChange={(e) => setImage(e)} />
-                <DropDown label="Área de atuação" itens={props.itens} value={area} toChange={setArea} />
-                <Button text="Salvar" />
+                <h2>Cadastro de Produto</h2>
+
+                <FieldText 
+                    label="Nome do Produto" 
+                    placeholder="Digite o nome" 
+                    value={productName} 
+                    onChange={setProductName} 
+                />
+
+                <FieldText 
+                    label="Preço" 
+                    placeholder="Ex: 199.90" 
+                    value={price} 
+                    onChange={setPrice} 
+                />
+
+                <DropDown 
+                    label="Condição" 
+                    itens={["new", "used"]} 
+                    value={condition} 
+                    toChange={setCondition} 
+                />
+
+                {/* 🔥 agora escolhe a seção existente */}
+                <DropDown 
+                    label="Seção" 
+                    itens={props.itens} 
+                    value={sectionName} 
+                    toChange={setSectionName} 
+                />
+
+                <FieldText 
+                    label="Marca" 
+                    placeholder="Ex: Apple" 
+                    value={brandName} 
+                    onChange={setBrandName} 
+                />
+
+                <FieldText 
+                    label="Imagem da Marca" 
+                    placeholder="URL da imagem" 
+                    value={brandImage} 
+                    onChange={setBrandImage} 
+                />
+
+                <FieldText 
+                    label="Imagem do Usuário" 
+                    placeholder="URL da imagem" 
+                    value={userImage} 
+                    onChange={setUserImage} 
+                />
+
+                <Button text="Salvar Produto" />
             </form>
         </section>
     )
 }
+
 export default Forms;

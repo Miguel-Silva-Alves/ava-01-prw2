@@ -2,11 +2,12 @@ import { useState } from 'react'
 import './App.css'
 import Area from './components/area/area'
 import Banner from './components/banner/banner'
+import Forms from './components/forms/forms'
 import HorizontalSections from './components/section/horizontalSections'
 
 function App() {
 
-  // 🔥 agora é products
+  // agora é products
   const [products, setProducts] = useState([
     {
       productName: "MacBook Pro",
@@ -42,7 +43,7 @@ function App() {
   const [newName, setNewName] = useState("")
   const [newImage, setNewImage] = useState("")
 
-  // 🚀 adicionar nova section
+  // adicionar nova section
   const handleAddSection = () => {
     if (!newName || !newImage) return
 
@@ -57,6 +58,11 @@ function App() {
     setNewImage("")
   }
 
+  // adicionar novo produto
+  const handleAddProduct = (product) => {
+    setProducts([...products, product])
+  }
+
   return (
     <>
       <div className="container">
@@ -67,7 +73,7 @@ function App() {
           onAdd={() => setShowModal(true)}
         />
 
-        {/* 🔥 AREAS BASEADAS NAS SECTIONS */}
+        {/* AREAS BASEADAS NAS SECTIONS */}
         {sections.map((section) => (
           <Area
             key={section.name}
@@ -81,7 +87,15 @@ function App() {
         ))}
       </div>
 
-      {/* 🔥 MODAL */}
+      <div className="form-section">
+        <Forms 
+          onAddProduct={handleAddProduct}
+          sections={sections}
+          itens={sections.map(s => s.name)} // dropdown com as sections
+        />
+      </div>
+
+      {/* MODAL */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal">
