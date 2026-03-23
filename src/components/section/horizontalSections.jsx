@@ -1,10 +1,16 @@
 import './horizontalSections.css'
 
-const HorizontalSections = ({ sections = [], onAdd }) => {
+const HorizontalSections = ({ sections = [], onAdd, onSelect, selectedSection }) => {
   return (
     <div className="sections-container">
       {sections.map((section, index) => (
-        <div className="section-item" key={index}>
+        <div 
+          className={`section-item ${selectedSection === section.name ? 'active' : ''}`}
+          key={index}
+          onClick={() => 
+            onSelect(selectedSection === section.name ? null : section.name)
+          }
+        >
           <div className="section-circle">
             <img src={section.image} alt={section.name} />
           </div>
@@ -12,7 +18,6 @@ const HorizontalSections = ({ sections = [], onAdd }) => {
         </div>
       ))}
 
-      {/* Último item: adicionar */}
       <div className="section-item add-item" onClick={onAdd}>
         <div className="section-circle">
           <span className="plus">+</span>

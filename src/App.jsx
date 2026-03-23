@@ -30,6 +30,8 @@ function App() {
     }
   ])
 
+  const [selectedSection, setSelectedSection] = useState(null)
+
   const [sections, setSections] = useState([
     { name: 'Computadores', image: 'https://thumbs.dreamstime.com/b/programmer-reviews-documentation-coding-pc-modern-office-software-developer-cross-referencing-paperwork-source-445409596.jpg?w=992' },
     { name: 'Acessórios', image: 'https://thumbs.dreamstime.com/b/computer-peripherals-laptop-accessories-composition-white-wooden-board-47590141.jpg?w=992' },
@@ -70,6 +72,15 @@ function App() {
     setProducts([...products, product])
   }
 
+  const filteredSections = sections.filter(
+    section => !selectedSection || section.name === selectedSection
+  )
+
+  const hasProductsInSelected = selectedSection
+    ? products.some(p => p.sectionName === selectedSection)
+    : true
+
+
   return (
     <>
       <div className="container">
@@ -78,10 +89,12 @@ function App() {
         <HorizontalSections 
           sections={sections}
           onAdd={() => setShowModal(true)}
+          onSelect={setSelectedSection}
+          selectedSection={selectedSection}
         />
 
         {/* AREAS BASEADAS NAS SECTIONS */}
-        {sections.map((section) => (
+        {filteredSections.map((section) => (
           <Area
             key={section.name}
             name={section.name}
@@ -92,6 +105,13 @@ function App() {
             )}
           />
         ))}
+
+        {/* 🔥 mensagem quando filtrado e vazio */}
+        {selectedSection && !hasProductsInSelected && (
+          <div className="empty-state">
+            Sem produtos nessa seção
+          </div>
+        )}
 
         <BrandSection brands={brands} />
 

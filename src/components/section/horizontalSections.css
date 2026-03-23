@@ -66,3 +66,12 @@
   font-weight: bold;
   color: #666;
 }
+
+.section-item.active {
+  transform: scale(1.05);
+  font-weight: bold;
+}
+
+.section-item.active .section-circle {
+  border: 2px solid #6278F7;
+}
